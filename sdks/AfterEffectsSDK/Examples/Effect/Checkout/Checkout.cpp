@@ -184,19 +184,23 @@ Render(
 	//halfsies.top	= halfsies.left	= 0;
 	//halfsies.right	= (short)output->width;
 	//halfsies.bottom	= (short)(output->height / 2);
-    ERR(PF_CHECKOUT_PARAM(    in_data,
+    /*ERR(PF_CHECKOUT_PARAM(    in_data,
         CHECK_LAYER,
         (in_data->current_time + params[CHECK_FRAME]->u.sd.value * in_data->time_step),
         in_data->time_step,
         in_data->time_scale,
+        &checkout)); */
+    ERR(PF_CHECKOUT_PARAM(    in_data,
+        CHECK_LAYER,
+        (in_data->current_time + in_data->time_step),
+        in_data->time_step,
+        in_data->time_scale,
         &checkout));
-        
+    output = &checkout.u.ld;
     float r = 0.9;
     float s = 2;
     int w_diff, h_diff;
     while (s > .1) {
-        
-        
         if (s == 2) {
             s = 1;
         } else if (s == 1) {
@@ -213,7 +217,7 @@ Render(
         
         if (!err) {
             if (checkout.u.ld.data)  {
-                ERR(PF_COPY(&checkout.u.ld,
+                ERR(PF_COPY(output,
                             output,
                             NULL,
                             &halfsies));
@@ -221,16 +225,6 @@ Render(
                 // no layer? Zero-alpha black.
                 ERR(PF_FILL(NULL, &halfsies, output));
             }
-        
-            /*if (!err)  {
-                halfsies.top        = halfsies.bottom = 0;                //reset rect, copy.
-                halfsies.bottom     = (short)output->height;
-
-                ERR(PF_COPY(&params[CHECK_INPUT]->u.ld,
-                            output,
-                            NULL,
-                            &halfsies));
-            }*/
         } else {
             break;
         }
