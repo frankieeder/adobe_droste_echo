@@ -91,21 +91,53 @@ ParamsSetup (
 	PF_Err			err = PF_Err_NONE;
 	PF_ParamDef		def;	
 
+    AEFX_CLR_STRUCT(def);
+    
+    PF_ADD_SLIDER(    CHECK_FRAME_NAME,
+                    CHECK_FRAME_MIN,
+                    CHECK_FRAME_MAX,
+                    CHECK_FRAME_MIN,
+                    CHECK_FRAME_MAX,
+                    CHECK_FRAME_DFLT,
+                    CHECK_FRAME_DISK_ID);
+
+    AEFX_CLR_STRUCT(def);
+
+    PF_ADD_LAYER(    CHECK_LAYER_NAME,
+                    PF_LayerDefault_MYSELF,
+                    CHECK_LAYER_DISK_ID);
+    
 	AEFX_CLR_STRUCT(def);
 	
-	PF_ADD_SLIDER(	CHECK_FRAME_NAME, 
-					CHECK_FRAME_MIN, 
-					CHECK_FRAME_MAX, 
-					CHECK_FRAME_MIN, 
-					CHECK_FRAME_MAX, 
-					CHECK_FRAME_DFLT,
-					CHECK_FRAME_DISK_ID);
+    // Decay
+    /*PF_ADD_FLOAT_SLIDERX(    CHECK_DECAY_NAME,
+                    0,
+                    1,
+                    0,
+                    1,
+                    CHECK_DECAY_DFLT,
+                    PF_Precision_HUNDREDTHS,
+                    0,
+                    0,
+                    CHECK_DECAY_DISK_ID);*/
+    PF_ADD_SLIDER(  CHECK_DECAY_NAME,
+                    0,
+                    100,
+                    0,
+                    100,
+                    75,
+                    CHECK_DECAY_DISK_ID);
 
 	AEFX_CLR_STRUCT(def);
-
-	PF_ADD_LAYER(	CHECK_LAYER_NAME, 
-					PF_LayerDefault_MYSELF, 
-					CHECK_LAYER_DISK_ID);
+    
+    // Iters
+	PF_ADD_SLIDER(	CHECK_ITERS_NAME, 
+					0,
+                    100,
+                    0,
+                    100,
+                    10,
+					CHECK_ITERS_DISK_ID);
 
 	out_data->num_params = CHECK_NUM_PARAMS;
 	
@@ -190,26 +222,29 @@ Render(
         in_data->time_step,
         in_data->time_scale,
         &checkout)); */
-    ERR(PF_CHECKOUT_PARAM(    in_data,
-        CHECK_LAYER,
+    /*ERR(PF_CHECKOUT_PARAM(    in_data,
+        0,
         (in_data->current_time + in_data->time_step),
         in_data->time_step,
         in_data->time_scale,
-        &checkout));
-    output = &checkout.u.ld;
-    float r = 0.9;
-    float s = 2;
+        &checkout));*/
+    ERR(PF_CHECKOUT_PARAM(    in_data,
+                            CHECK_LAYER,
+                            (in_data->current_time + params[CHECK_FRAME]->u.sd.value * in_data->time_step),
+                            in_data->time_step,
+                            in_data->time_scale,
+                            &checkout));
+    float r = params[CHECK_DECAY]->u.sd.value / params[CHECK_DECAY]->u.sd.valid_max;
+    int num_iters = params[CHECK_ITERS]->u.sd.value;
+    float s;
     int w_diff, h_diff;
-    while (s > .1) {
-        if (s == 2) {
-            s = 1;
-        } else if (s == 1) {
-            s = r;
-        } else {
-            s = pow(s, 2);
-        }
+    for (int i = 0; i < num_iters; i++) {
+        s = pow(r, i);
         w_diff = (output->width * (1-s))/2;
         h_diff = (output->height * (1-s))/2;
+        if (w_diff <= 1 || h_diff <= 1) {
+            break;
+        }
         halfsies.top = h_diff;
         halfsies.left = w_diff;
         halfsies.right = (output->width - w_diff);
@@ -217,7 +252,7 @@ Render(
         
         if (!err) {
             if (checkout.u.ld.data)  {
-                ERR(PF_COPY(output,
+                ERR(PF_COPY(&checkout.u.ld,
                             output,
                             NULL,
                             &halfsies));
