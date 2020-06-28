@@ -110,7 +110,7 @@ ParamsSetup (
     
     AEFX_CLR_STRUCT(def);
     
-    /*PF_ADD_SLIDER(    CHECK_DECAY_NAME,
+    PF_ADD_SLIDER(    CHECK_DECAY_NAME,
                     0,
                     100,
                     0,
@@ -118,14 +118,14 @@ ParamsSetup (
                     10,
                     CHECK_DECAY_DISK_ID);
     
-    AEFX_CLR_STRUCT(def);*/
+    AEFX_CLR_STRUCT(def);
     
     PF_ADD_SLIDER(    CHECK_ITERS_NAME,
                     0,
                     100,
                     0,
                     100,
-                    10,
+                    90,
                     CHECK_ITERS_DISK_ID);
 
 
@@ -213,7 +213,7 @@ Render(
         in_data->time_scale,
         &checkout));
         
-    float r = 0.9;
+    float r = float(params[CHECK_DECAY]->u.sd.value) / float(params[CHECK_DECAY]->u.sd.valid_max);
     int num_iters = std::max(params[CHECK_ITERS]->u.sd.value, 1);
     float s;
     int w_diff, h_diff;
