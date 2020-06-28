@@ -38,6 +38,7 @@
 */
 
 #include <cmath>
+#include <algorithm>
 #include "Checkout.h"
 
 
@@ -106,6 +107,27 @@ ParamsSetup (
 	PF_ADD_LAYER(	CHECK_LAYER_NAME, 
 					PF_LayerDefault_MYSELF, 
 					CHECK_LAYER_DISK_ID);
+    
+    AEFX_CLR_STRUCT(def);
+    
+    /*PF_ADD_SLIDER(    CHECK_DECAY_NAME,
+                    0,
+                    100,
+                    0,
+                    100,
+                    10,
+                    CHECK_DECAY_DISK_ID);
+    
+    AEFX_CLR_STRUCT(def);*/
+    
+    PF_ADD_SLIDER(    CHECK_ITERS_NAME,
+                    0,
+                    100,
+                    0,
+                    100,
+                    10,
+                    CHECK_ITERS_DISK_ID);
+
 
 	out_data->num_params = CHECK_NUM_PARAMS;
 	
@@ -192,18 +214,11 @@ Render(
         &checkout));
         
     float r = 0.9;
-    float s = 2;
+    int num_iters = std::max(params[CHECK_ITERS]->u.sd.value, 1);
+    float s;
     int w_diff, h_diff;
-    while (s > .1) {
-        
-        
-        if (s == 2) {
-            s = 1;
-        } else if (s == 1) {
-            s = r;
-        } else {
-            s = pow(s, 2);
-        }
+    for (int i = 0; i < num_iters; i++) {
+        s = pow(r, i);
         w_diff = (output->width * (1-s))/2;
         h_diff = (output->height * (1-s))/2;
         halfsies.top = h_diff;

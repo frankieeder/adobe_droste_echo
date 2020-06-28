@@ -56,17 +56,25 @@
 #define DESCRIPTION			"Checks out layers at other times.\rCopyright 1994-2015\r\rAdobe Systems Incorporated."
 #define CHECK_FRAME_NAME	"Frame offset"
 #define CHECK_LAYER_NAME	"Layer to checkout"
+#define CHECK_DECAY_NAME    "Decay Rate"
+#define CHECK_ITERS_NAME    "Number of Iterations"
+#define CHECK_X_NAME        "X Offset"
+#define CHECK_Y_NAME        "Y Offset"
 
 enum {
 	CHECK_INPUT = 0,
 	CHECK_FRAME,
 	CHECK_LAYER,
+    //CHECK_DECAY,
+    CHECK_ITERS,
 	CHECK_NUM_PARAMS
 };
 
 enum {
 	CHECK_FRAME_DISK_ID = 1,
-	CHECK_LAYER_DISK_ID
+	CHECK_LAYER_DISK_ID,
+    //CHECK_DECAY_DISK_ID,
+    CHECK_ITERS_DISK_ID
 };
 
 #define	CHECK_FRAME_MIN		-100
