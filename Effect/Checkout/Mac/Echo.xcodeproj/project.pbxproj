@@ -164,6 +164,7 @@
 					../../../Resources,
 				);
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = Echo;
 				REZ_PREPROCESSOR_DEFINITIONS = __MACH__;
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = plugin;
@@ -178,9 +179,9 @@
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GENERATE_PKGINFO_FILE = YES;
-				INFOPLIST_FILE = "Checkout.plugin-Info.plist";
+				INFOPLIST_FILE = "Echo.plugin-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AfterEffects.Checkout;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AfterEffects.Echo;
 				PRODUCT_NAME = Echo;
 				SDKROOT = macosx;
 				ZERO_LINK = NO;
