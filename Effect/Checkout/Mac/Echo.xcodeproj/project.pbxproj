@@ -21,7 +21,7 @@
 		7EF36FC016F29931002A3CB3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C4E61899095A3C810012CA3F /* EchoPiPL.r */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.rez; name = EchoPiPL.r; path = ../EchoPiPL.r; sourceTree = SOURCE_ROOT; };
 		C4E6189F095A3C810012CA3F /* Echo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Echo.cpp; path = ../Echo.cpp; sourceTree = SOURCE_ROOT; };
-		C4E618CC095A3CE80012CA3F /* Checkout.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Checkout.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4E618CC095A3CE80012CA3F /* Echo.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Echo.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,7 @@
 		C4E6188C095A3C800012CA3F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C4E618CC095A3CE80012CA3F /* Checkout.plugin */,
+				C4E618CC095A3CE80012CA3F /* Echo.plugin */,
 			);
 			name = Products;
 			sourceTree = SOURCE_ROOT;
@@ -85,7 +85,7 @@
 			);
 			name = Checkout;
 			productName = Checkout.plugin;
-			productReference = C4E618CC095A3CE80012CA3F /* Checkout.plugin */;
+			productReference = C4E618CC095A3CE80012CA3F /* Echo.plugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -181,7 +181,7 @@
 				INFOPLIST_FILE = "Checkout.plugin-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AfterEffects.Checkout;
-				PRODUCT_NAME = Checkout;
+				PRODUCT_NAME = Echo;
 				SDKROOT = macosx;
 				ZERO_LINK = NO;
 			};
