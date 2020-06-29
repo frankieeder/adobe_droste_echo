@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C4E618CB095A3CE80012CA3F"
-               BuildableName = "Checkout.plugin"
-               BlueprintName = "Checkout"
+               BuildableName = "Echo.plugin"
+               BlueprintName = "Echo"
                ReferencedContainer = "container:Echo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -51,8 +51,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C4E618CB095A3CE80012CA3F"
-            BuildableName = "Checkout.plugin"
-            BlueprintName = "Checkout"
+            BuildableName = "Echo.plugin"
+            BlueprintName = "Echo"
             ReferencedContainer = "container:Echo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

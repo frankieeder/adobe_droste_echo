@@ -70,9 +70,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C4E618CB095A3CE80012CA3F /* Checkout */ = {
+		C4E618CB095A3CE80012CA3F /* Echo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C4E618CE095A3CE90012CA3F /* Build configuration list for PBXNativeTarget "Checkout" */;
+			buildConfigurationList = C4E618CE095A3CE90012CA3F /* Build configuration list for PBXNativeTarget "Echo" */;
 			buildPhases = (
 				C4E618C8095A3CE80012CA3F /* Resources */,
 				C4E618C9095A3CE80012CA3F /* Sources */,
@@ -83,7 +83,7 @@
 			);
 			dependencies = (
 			);
-			name = Checkout;
+			name = Echo;
 			productName = Checkout.plugin;
 			productReference = C4E618CC095A3CE80012CA3F /* Echo.plugin */;
 			productType = "com.apple.product-type.bundle";
@@ -111,7 +111,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C4E618CB095A3CE80012CA3F /* Checkout */,
+				C4E618CB095A3CE80012CA3F /* Echo */,
 			);
 		};
 /* End PBXProject section */
@@ -199,7 +199,7 @@
 			defaultConfigurationIsVisible = 1;
 			defaultConfigurationName = Debug;
 		};
-		C4E618CE095A3CE90012CA3F /* Build configuration list for PBXNativeTarget "Checkout" */ = {
+		C4E618CE095A3CE90012CA3F /* Build configuration list for PBXNativeTarget "Echo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C4E618CF095A3CE90012CA3F /* Debug */,
