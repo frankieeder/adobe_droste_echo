@@ -8,19 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		7EF36FC116F29931002A3CB3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF36FC016F29931002A3CB3 /* Cocoa.framework */; };
-		C4D30BC7095B394800E2F3B4 /* CheckoutPiPL.r in Rez */ = {isa = PBXBuildFile; fileRef = C4E61899095A3C810012CA3F /* CheckoutPiPL.r */; };
-		C4E618D2095A3D3A0012CA3F /* Checkout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4E6189F095A3C810012CA3F /* Checkout.cpp */; };
+		C4D30BC7095B394800E2F3B4 /* EchoPiPL.r in Rez */ = {isa = PBXBuildFile; fileRef = C4E61899095A3C810012CA3F /* EchoPiPL.r */; };
+		C4E618D2095A3D3A0012CA3F /* Echo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4E6189F095A3C810012CA3F /* Echo.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7E76EEDB1F7087FC00536F9D /* AE_Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AE_Effect.h; path = ../../../Headers/AE_Effect.h; sourceTree = "<group>"; };
 		7E76EEDC1F7087FC00536F9D /* AE_PluginData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AE_PluginData.h; path = ../../../Headers/AE_PluginData.h; sourceTree = "<group>"; };
-		7EB4276C0FBA0E9E003C7DD1 /* Checkout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Checkout.h; path = ../Checkout.h; sourceTree = SOURCE_ROOT; };
+		7EB4276C0FBA0E9E003C7DD1 /* Echo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Echo.h; path = ../Echo.h; sourceTree = SOURCE_ROOT; };
 		7EE914321A5C6F19009CD299 /* AEFX_SuiteHandlerTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AEFX_SuiteHandlerTemplate.h; path = ../../../Headers/AEFX_SuiteHandlerTemplate.h; sourceTree = "<group>"; };
 		7EE914701A5C7051009CD299 /* DuckSuite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DuckSuite.h; path = ../../../Util/DuckSuite.h; sourceTree = "<group>"; };
 		7EF36FC016F29931002A3CB3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		C4E61899095A3C810012CA3F /* CheckoutPiPL.r */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.rez; name = CheckoutPiPL.r; path = ../CheckoutPiPL.r; sourceTree = SOURCE_ROOT; };
-		C4E6189F095A3C810012CA3F /* Checkout.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Checkout.cpp; path = ../Checkout.cpp; sourceTree = SOURCE_ROOT; };
+		C4E61899095A3C810012CA3F /* EchoPiPL.r */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.rez; name = EchoPiPL.r; path = ../EchoPiPL.r; sourceTree = SOURCE_ROOT; };
+		C4E6189F095A3C810012CA3F /* Echo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Echo.cpp; path = ../Echo.cpp; sourceTree = SOURCE_ROOT; };
 		C4E618CC095A3CE80012CA3F /* Checkout.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Checkout.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -39,9 +39,9 @@
 		C4E6187C095A3C800012CA3F = {
 			isa = PBXGroup;
 			children = (
-				C4E6189F095A3C810012CA3F /* Checkout.cpp */,
-				7EB4276C0FBA0E9E003C7DD1 /* Checkout.h */,
-				C4E61899095A3C810012CA3F /* CheckoutPiPL.r */,
+				C4E6189F095A3C810012CA3F /* Echo.cpp */,
+				7EB4276C0FBA0E9E003C7DD1 /* Echo.h */,
+				C4E61899095A3C810012CA3F /* EchoPiPL.r */,
 				7EF36FC016F29931002A3CB3 /* Cocoa.framework */,
 				D05CB7DF09C797100070A8DA /* Supporting Code */,
 				C4E6188C095A3C800012CA3F /* Products */,
@@ -96,7 +96,7 @@
 			attributes = {
 				LastUpgradeCheck = 0720;
 			};
-			buildConfigurationList = C4E6187F095A3C800012CA3F /* Build configuration list for PBXProject "Checkout" */;
+			buildConfigurationList = C4E6187F095A3C800012CA3F /* Build configuration list for PBXProject "Echo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -131,7 +131,7 @@
 			isa = PBXRezBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4D30BC7095B394800E2F3B4 /* CheckoutPiPL.r in Rez */,
+				C4D30BC7095B394800E2F3B4 /* EchoPiPL.r in Rez */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4E618D2095A3D3A0012CA3F /* Checkout.cpp in Sources */,
+				C4E618D2095A3D3A0012CA3F /* Echo.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +190,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C4E6187F095A3C800012CA3F /* Build configuration list for PBXProject "Checkout" */ = {
+		C4E6187F095A3C800012CA3F /* Build configuration list for PBXProject "Echo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C4E61880095A3C800012CA3F /* Debug */,

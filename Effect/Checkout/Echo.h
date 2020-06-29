@@ -20,16 +20,13 @@
 /*******************************************************************/
 
 /**
-	Checkout.h
-	
-	Part of the Adobe After Effects SDK.
-
+	Echo.h
 **/
 
 #pragma once
 
-#ifndef CHECKOUT_H
-#define CHECKOUT_H
+#ifndef ECHO_H
+#define ECHO_H
 
 #include "AEConfig.h"
 #include "entry.h"
@@ -94,4 +91,4 @@ extern "C" {
 
 }
 
-#endif // CHECKOUT_H
+#endif // ECHO_H

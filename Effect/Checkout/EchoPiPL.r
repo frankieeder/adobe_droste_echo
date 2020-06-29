@@ -13,7 +13,7 @@ resource 'PiPL' (16000) {
 		},
 		/* [2] */
 		Name {
-			"Checkout"
+			"Echo"
 		},
 		/* [3] */
 		Category {

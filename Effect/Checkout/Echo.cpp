@@ -20,26 +20,12 @@
 /*******************************************************************/
 
 /*
-	Checkout.cpp
-	
-	Revision History
-		
-	Version		Change										Engineer	Date
-	=======		======										========	======
-	1.0 		created										bbb
-	1.1			folded ADM sample code into project			bbb
-	1.2			removed ADM sample code						bbb			12/22/2005
-	2.0			Premiere Pro compatibility					zal			12/28/2006
-	2.1			-> .cpp										zal			11/15/2011
-	2.2			Allow negative frame offsets				zal			8/12/2013
-	2.3			AEFX_AcquireSuite -> AEFX_SuiteScoper		zal			1/5/2015
-				 and some exception handling
-	2.5			Added new entry point						zal			9/15/2017
+	Echo.cpp
 */
 
 #include <cmath>
 #include <algorithm>
-#include "Checkout.h"
+#include "Echo.h"
 
 
 static PF_Err 
