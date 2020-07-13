@@ -126,8 +126,8 @@ enum {
 #define    CHECK_DEST_Y_POWER_DFLT       1
 
 #define    CHECK_SOURCE_DECAY_MIN        0
-#define    CHECK_SOURCE_DECAY_MAX        99.99
-#define    CHECK_SOURCE_DECAY_DFLT       90
+#define    CHECK_SOURCE_DECAY_MAX        200
+#define    CHECK_SOURCE_DECAY_DFLT       100
 
 #define    CHECK_SOURCE_X_MIN        -1000
 #define    CHECK_SOURCE_X_MAX        1000

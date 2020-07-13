@@ -171,55 +171,78 @@ ParamsSetup (
     
     AEFX_CLR_STRUCT(def);
     
-    PF_ADD_SLIDER(    CHECK_SOURCE_DECAY_NAME,
-                    CHECK_SOURCE_DECAY_MIN,
-                    CHECK_SOURCE_DECAY_MAX,
-                    CHECK_SOURCE_DECAY_MIN,
-                    CHECK_SOURCE_DECAY_MAX,
-                    CHECK_SOURCE_DECAY_DFLT,
-                    CHECK_SOURCE_DECAY_DISK_ID);
+    PF_ADD_FLOAT_SLIDER(
+                        CHECK_SOURCE_DECAY_NAME,
+                        CHECK_SOURCE_DECAY_MIN,
+                        CHECK_SOURCE_DECAY_MAX,
+                        CHECK_SOURCE_DECAY_MIN,
+                        CHECK_SOURCE_DECAY_MAX,
+                        0,
+                        CHECK_SOURCE_DECAY_DFLT,
+                        PF_Precision_TENTHS,
+                        PF_ValueDisplayFlag_PERCENT,
+                        0,
+                        CHECK_SOURCE_X_DISK_ID);
     
     AEFX_CLR_STRUCT(def);
     
-    PF_ADD_SLIDER(    CHECK_SOURCE_X_NAME,
-                    CHECK_SOURCE_X_MIN,
-                    CHECK_SOURCE_X_MAX,
-                    CHECK_SOURCE_X_MIN,
-                    CHECK_SOURCE_X_MAX,
-                    CHECK_SOURCE_X_DFLT,
-                    CHECK_SOURCE_X_DISK_ID);
+    PF_ADD_FLOAT_SLIDER(
+                        CHECK_SOURCE_X_NAME,
+                        CHECK_SOURCE_X_MIN,
+                        CHECK_SOURCE_X_MAX,
+                        CHECK_SOURCE_X_MIN,
+                        CHECK_SOURCE_X_MAX,
+                        0,
+                        CHECK_SOURCE_X_DFLT,
+                        PF_Precision_TENTHS,
+                        PF_ValueDisplayFlag_PERCENT,
+                        0,
+                        CHECK_SOURCE_X_DISK_ID);
     
     AEFX_CLR_STRUCT(def);
     
-    PF_ADD_SLIDER(    CHECK_SOURCE_Y_NAME,
-                    CHECK_SOURCE_Y_MIN,
-                    CHECK_SOURCE_Y_MAX,
-                    CHECK_SOURCE_Y_MIN,
-                    CHECK_SOURCE_Y_MAX,
-                    CHECK_SOURCE_Y_DFLT,
-                    CHECK_SOURCE_Y_DISK_ID);
+    PF_ADD_FLOAT_SLIDER(
+                        CHECK_SOURCE_Y_NAME,
+                        CHECK_SOURCE_Y_MIN,
+                        CHECK_SOURCE_Y_MAX,
+                        CHECK_SOURCE_Y_MIN,
+                        CHECK_SOURCE_Y_MAX,
+                        0,
+                        CHECK_SOURCE_Y_DFLT,
+                        PF_Precision_TENTHS,
+                        PF_ValueDisplayFlag_PERCENT,
+                        0,
+                        CHECK_SOURCE_Y_DISK_ID);
     
     AEFX_CLR_STRUCT(def);
     
-    PF_ADD_SLIDER(    CHECK_SOURCE_X_POWER_NAME,
-                    CHECK_SOURCE_X_POWER_MIN,
-                    CHECK_SOURCE_X_POWER_MAX,
-                    CHECK_SOURCE_X_POWER_MIN,
-                    CHECK_SOURCE_X_POWER_MAX,
-                    CHECK_SOURCE_X_POWER_DFLT,
-                    CHECK_SOURCE_X_POWER_DISK_ID);
+    PF_ADD_FLOAT_SLIDER(
+                        CHECK_SOURCE_X_POWER_NAME,
+                        CHECK_SOURCE_X_POWER_MIN,
+                        CHECK_SOURCE_X_POWER_MAX,
+                        CHECK_SOURCE_X_POWER_MIN,
+                        CHECK_SOURCE_X_POWER_MAX,
+                        0,
+                        CHECK_SOURCE_X_POWER_DFLT,
+                        PF_Precision_HUNDREDTHS,
+                        PF_ValueDisplayFlag_NONE,
+                        0,
+                        CHECK_SOURCE_X_POWER_DISK_ID);
     
     AEFX_CLR_STRUCT(def);
     
-    PF_ADD_SLIDER(    CHECK_SOURCE_Y_POWER_NAME,
-                    CHECK_SOURCE_Y_POWER_MIN,
-                    CHECK_SOURCE_Y_POWER_MAX,
-                    CHECK_SOURCE_Y_POWER_MIN,
-                    CHECK_SOURCE_Y_POWER_MAX,
-                    CHECK_SOURCE_Y_POWER_DFLT,
-                    CHECK_SOURCE_Y_POWER_DISK_ID);
-    
-    AEFX_CLR_STRUCT(def);
+    PF_ADD_FLOAT_SLIDER(
+                        CHECK_SOURCE_Y_POWER_NAME,
+                        CHECK_SOURCE_Y_POWER_MIN,
+                        CHECK_SOURCE_Y_POWER_MAX,
+                        CHECK_SOURCE_Y_POWER_MIN,
+                        CHECK_SOURCE_Y_POWER_MAX,
+                        0,
+                        CHECK_SOURCE_Y_POWER_DFLT,
+                        PF_Precision_HUNDREDTHS,
+                        PF_ValueDisplayFlag_NONE,
+                        0,
+                        CHECK_SOURCE_Y_POWER_DISK_ID);
     
     PF_ADD_SLIDER(    CHECK_ITERS_NAME,
                     CHECK_ITERS_MIN,
@@ -336,8 +359,8 @@ Render(
     float sd = params[CHECK_SOURCE_DECAY]->u.fs_d.value / 100.0;
     float sx = params[CHECK_SOURCE_X]->u.fs_d.value / 200.0;
     float sy = params[CHECK_SOURCE_Y]->u.fs_d.value / 200.0;
-    float sxp = params[CHECK_SOURCE_X_POWER]->u.fs_d.value / 100.0;
-    float syp = params[CHECK_SOURCE_Y_POWER]->u.fs_d.value / 100.0;
+    float sxp = params[CHECK_SOURCE_X_POWER]->u.fs_d.value;
+    float syp = params[CHECK_SOURCE_Y_POWER]->u.fs_d.value;
     
     int num_iters = params[CHECK_ITERS]->u.sd.value;
     float dd_c; // crop scale
@@ -352,14 +375,14 @@ Render(
             break;
         }
         PF_Rect cr = ScaledRect(dd_c, output->width, output->height, dx, dy, dxp, dyp);
-        PF_Rect sr = ScaledRect(sd_c, output->width, output->height, sx, sy, sxp, syp);
+        PF_Rect sr = ScaledRect(sd_c*dd_c, output->width, output->height, sx, sy, sxp, syp);
         
         if (!err) {
             //PF_COPY(SRC, DST, SRC_RECT, DST_RECT)
             if (checkout.u.ld.data)  {
                 ERR(PF_COPY(&checkout.u.ld,
                             output,
-                            NULL,
+                            &sr,
                             &cr));
             }  else  {
                 // no layer? Zero-alpha black.

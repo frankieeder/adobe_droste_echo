@@ -15,8 +15,8 @@
             timestampString = "0"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "348"
-            endingLineNumber = "348"
+            startingLineNumber = "371"
+            endingLineNumber = "371"
             landmarkName = "Render(in_data, out_data, params, output)"
             landmarkType = "9">
          </BreakpointContent>
@@ -31,8 +31,8 @@
             filePath = "../Echo.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "360"
-            endingLineNumber = "360"
+            startingLineNumber = "383"
+            endingLineNumber = "383"
             landmarkName = "Render(in_data, out_data, params, output)"
             landmarkType = "9">
          </BreakpointContent>
@@ -47,9 +47,9 @@
             filePath = "../Echo.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
-            landmarkName = "ScaledRect(s, w, h, x, y, xp, yp)"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
+            landmarkName = "Render(in_data, out_data, params, output)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -63,8 +63,8 @@
             filePath = "../Echo.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "329"
-            endingLineNumber = "329"
+            startingLineNumber = "352"
+            endingLineNumber = "352"
             landmarkName = "Render(in_data, out_data, params, output)"
             landmarkType = "9">
          </BreakpointContent>
@@ -79,8 +79,8 @@
             filePath = "../Echo.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "331"
-            endingLineNumber = "331"
+            startingLineNumber = "354"
+            endingLineNumber = "354"
             landmarkName = "Render(in_data, out_data, params, output)"
             landmarkType = "9">
          </BreakpointContent>
