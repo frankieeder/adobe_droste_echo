@@ -96,22 +96,111 @@ ParamsSetup (
     
     AEFX_CLR_STRUCT(def);
     
-    PF_ADD_SLIDER(    CHECK_DECAY_NAME,
-                    0,
-                    100,
-                    0,
-                    100,
-                    10,
-                    CHECK_DECAY_DISK_ID);
+    PF_ADD_SLIDER(    CHECK_DEST_DECAY_NAME,
+                    CHECK_DEST_DECAY_MIN,
+                    CHECK_DEST_DECAY_MAX,
+                    CHECK_DEST_DECAY_MIN,
+                    CHECK_DEST_DECAY_MAX,
+                    CHECK_DEST_DECAY_DFLT,
+                    CHECK_DEST_DECAY_DISK_ID);
+    
+    AEFX_CLR_STRUCT(def);
+    
+    PF_ADD_SLIDER(    CHECK_DEST_X_NAME,
+                    CHECK_DEST_X_MIN,
+                    CHECK_DEST_X_MAX,
+                    CHECK_DEST_X_MIN,
+                    CHECK_DEST_X_MAX,
+                    CHECK_DEST_X_DFLT,
+                    CHECK_DEST_X_DISK_ID);
+    
+    AEFX_CLR_STRUCT(def);
+    
+    PF_ADD_SLIDER(    CHECK_DEST_Y_NAME,
+                    CHECK_DEST_Y_MIN,
+                    CHECK_DEST_Y_MAX,
+                    CHECK_DEST_Y_MIN,
+                    CHECK_DEST_Y_MAX,
+                    CHECK_DEST_Y_DFLT,
+                    CHECK_DEST_Y_DISK_ID);
+    
+    AEFX_CLR_STRUCT(def);
+    
+    PF_ADD_SLIDER(    CHECK_DEST_X_PERC_NAME,
+                    CHECK_DEST_X_PERC_MIN,
+                    CHECK_DEST_X_PERC_MAX,
+                    CHECK_DEST_X_PERC_MIN,
+                    CHECK_DEST_X_PERC_MAX,
+                    CHECK_DEST_X_PERC_DFLT,
+                    CHECK_DEST_X_PERC_DISK_ID);
+    
+    AEFX_CLR_STRUCT(def);
+    
+    PF_ADD_SLIDER(    CHECK_DEST_Y_PERC_NAME,
+                    CHECK_DEST_Y_PERC_MIN,
+                    CHECK_DEST_Y_PERC_MAX,
+                    CHECK_DEST_Y_PERC_MIN,
+                    CHECK_DEST_Y_PERC_MAX,
+                    CHECK_DEST_Y_PERC_DFLT,
+                    CHECK_DEST_Y_PERC_DISK_ID);
+    
+    AEFX_CLR_STRUCT(def);
+    
+    PF_ADD_SLIDER(    CHECK_SOURCE_DECAY_NAME,
+                    CHECK_SOURCE_DECAY_MIN,
+                    CHECK_SOURCE_DECAY_MAX,
+                    CHECK_SOURCE_DECAY_MIN,
+                    CHECK_SOURCE_DECAY_MAX,
+                    CHECK_SOURCE_DECAY_DFLT,
+                    CHECK_SOURCE_DECAY_DISK_ID);
+    
+    AEFX_CLR_STRUCT(def);
+    
+    PF_ADD_SLIDER(    CHECK_SOURCE_X_NAME,
+                    CHECK_SOURCE_X_MIN,
+                    CHECK_SOURCE_X_MAX,
+                    CHECK_SOURCE_X_MIN,
+                    CHECK_SOURCE_X_MAX,
+                    CHECK_SOURCE_X_DFLT,
+                    CHECK_SOURCE_X_DISK_ID);
+    
+    AEFX_CLR_STRUCT(def);
+    
+    PF_ADD_SLIDER(    CHECK_SOURCE_Y_NAME,
+                    CHECK_SOURCE_Y_MIN,
+                    CHECK_SOURCE_Y_MAX,
+                    CHECK_SOURCE_Y_MIN,
+                    CHECK_SOURCE_Y_MAX,
+                    CHECK_SOURCE_Y_DFLT,
+                    CHECK_SOURCE_Y_DISK_ID);
+    
+    PF_ADD_SLIDER(    CHECK_SOURCE_X_PERC_NAME,
+                    CHECK_SOURCE_X_PERC_MIN,
+                    CHECK_SOURCE_X_PERC_MAX,
+                    CHECK_SOURCE_X_PERC_MIN,
+                    CHECK_SOURCE_X_PERC_MAX,
+                    CHECK_SOURCE_X_PERC_DFLT,
+                    CHECK_SOURCE_X_PERC_DISK_ID);
+    
+    AEFX_CLR_STRUCT(def);
+    
+    PF_ADD_SLIDER(    CHECK_SOURCE_Y_PERC_NAME,
+                    CHECK_SOURCE_Y_PERC_MIN,
+                    CHECK_SOURCE_Y_PERC_MAX,
+                    CHECK_SOURCE_Y_PERC_MIN,
+                    CHECK_SOURCE_Y_PERC_MAX,
+                    CHECK_SOURCE_Y_PERC_DFLT,
+                    CHECK_SOURCE_Y_PERC_DISK_ID);
+    
     
     AEFX_CLR_STRUCT(def);
     
     PF_ADD_SLIDER(    CHECK_ITERS_NAME,
-                    0,
-                    1000,
-                    0,
-                    1000,
-                    90,
+                    CHECK_ITERS_MIN,
+                    CHECK_ITERS_MAX,
+                    CHECK_ITERS_MIN,
+                    CHECK_ITERS_MAX,
+                    CHECK_ITERS_DFLT,
                     CHECK_ITERS_DISK_ID);
 
 
@@ -131,6 +220,22 @@ ParamsSetup (
 	return err;
 }
 
+
+static PF_Rect ScaledRect(float s, int w, int h, int x, int y, float xp, float yp) {
+    int w_diff = (w * (1-s))/2;
+    int h_diff = (h * (1-s))/2;
+    int w_offset = w_diff * x;//, xp);// + x;
+    int h_offset = h_diff * y;//, yp);// + y;
+    
+    PF_Rect crop_rect = {
+        w_diff + w_offset,
+        h_diff + h_offset,
+        w - w_diff + w_offset,
+        h - h_diff + h_offset
+    };
+    return crop_rect;
+}
+
  
 static PF_Err 
 Render(	
@@ -142,7 +247,7 @@ Render(
 	PF_Err				err 			= PF_Err_NONE,
 						err2 			= PF_Err_NONE;
 	int32_t				num_channelsL 	= 0;
-	PF_Rect				halfsies		= {0,0,0,0};
+	PF_Rect                crop_rect        = {0,0,0,0};
 	PF_ParamDef			checkout; 
 	PF_ChannelDesc		desc;
 	PF_ChannelRef		ref;
@@ -187,11 +292,7 @@ Render(
 											&chunk));
 		}
 	}
-
-	// set the checked-out rect to be the top half of the layer
-	//halfsies.top	= halfsies.left	= 0;
-	//halfsies.right	= (short)output->width;
-	//halfsies.bottom	= (short)(output->height / 2);
+    
     ERR(PF_CHECKOUT_PARAM(    in_data,
         CHECK_LAYER,
         (in_data->current_time + params[CHECK_FRAME]->u.sd.value * in_data->time_step),
@@ -199,31 +300,41 @@ Render(
         in_data->time_scale,
         &checkout));
         
-    float r = float(params[CHECK_DECAY]->u.sd.value) / float(params[CHECK_DECAY]->u.sd.valid_max);
+    float dd = float(params[CHECK_DEST_DECAY]->u.sd.value) / float(params[CHECK_DEST_DECAY]->u.sd.valid_max);
+    int dx = float(params[CHECK_DEST_X]->u.sd.value);
+    int dy = float(params[CHECK_DEST_Y]->u.sd.value);
+    float dxp = float(params[CHECK_DEST_X_PERC]->u.sd.value) / float(params[CHECK_DEST_X_PERC]->u.sd.valid_max);
+    float dyp = float(params[CHECK_DEST_Y_PERC]->u.sd.value) / float(params[CHECK_DEST_Y_PERC]->u.sd.valid_max);
+    
+    float sd = float(params[CHECK_SOURCE_DECAY]->u.sd.value) / float(params[CHECK_DEST_DECAY]->u.sd.valid_max);
+    int sx = float(params[CHECK_SOURCE_X]->u.sd.value);
+    int sy = float(params[CHECK_SOURCE_Y]->u.sd.value);
+    float sxp = float(params[CHECK_SOURCE_X_PERC]->u.sd.value) / float(params[CHECK_SOURCE_X_PERC]->u.sd.valid_max);
+    float syp = float(params[CHECK_SOURCE_Y_PERC]->u.sd.value) / float(params[CHECK_SOURCE_Y_PERC]->u.sd.valid_max);;
+    
     int num_iters = std::max(params[CHECK_ITERS]->u.sd.value, 1);
-    float s;
+    float dd_c; // crop scale
+    float sd_c; // source scale
     int w_diff, h_diff;
     for (int i = 0; i < num_iters; i++) {
-        s = pow(r, i);
-        w_diff = (output->width * (1-s))/2;
-        h_diff = (output->height * (1-s))/2;
-        if (s < 0.001) {
+        dd_c = pow(dd, i);
+        sd_c = pow(sd, i);
+        if (dd_c < 0.001) {
             break;
         }
-        halfsies.top = h_diff;
-        halfsies.left = w_diff;
-        halfsies.right = (output->width - w_diff);
-        halfsies.bottom = (output->height - h_diff);
+        PF_Rect cr = ScaledRect(dd_c, output->width, output->height, dx, dy, dxp, dyp);
+        PF_Rect sr = ScaledRect(sd_c, output->width, output->height, sx, sy, sxp, syp);
         
         if (!err) {
+            //PF_COPY(SRC, DST, SRC_RECT, DST_RECT)
             if (checkout.u.ld.data)  {
                 ERR(PF_COPY(&checkout.u.ld,
                             output,
                             NULL,
-                            &halfsies));
+                            &cr));
             }  else  {
                 // no layer? Zero-alpha black.
-                ERR(PF_FILL(NULL, &halfsies, output));
+                ERR(PF_FILL(NULL, &crop_rect, output));
             }
         
             /*if (!err)  {

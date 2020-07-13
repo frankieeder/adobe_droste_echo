@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C4E618CB095A3CE80012CA3F"
-               BuildableName = "Echo.plugin"
-               BlueprintName = "Echo"
-               ReferencedContainer = "container:Echo.xcodeproj">
+               BuildableName = "VisEcho.plugin"
+               BlueprintName = "VisEcho"
+               ReferencedContainer = "container:VisEcho.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -51,9 +51,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C4E618CB095A3CE80012CA3F"
-            BuildableName = "Echo.plugin"
-            BlueprintName = "Echo"
-            ReferencedContainer = "container:Echo.xcodeproj">
+            BuildableName = "VisEcho.plugin"
+            BlueprintName = "VisEcho"
+            ReferencedContainer = "container:VisEcho.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
