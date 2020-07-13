@@ -56,13 +56,13 @@
 #define CHECK_DEST_DECAY_NAME    "Destination Decay Rate"
 #define CHECK_DEST_X_NAME    "Destination X Offset"
 #define CHECK_DEST_Y_NAME    "Destination Y Offset"
-#define CHECK_DEST_X_PERC_NAME    "Destination X Offset Percentage"
-#define CHECK_DEST_Y_PERC_NAME    "Destination Y Offset Percentage"
+#define CHECK_DEST_X_POWER_NAME    "Destination X Offset Power"
+#define CHECK_DEST_Y_POWER_NAME    "Destination Y Offset Power"
 #define CHECK_SOURCE_DECAY_NAME    "Source Decay Rate"
 #define CHECK_SOURCE_X_NAME    "Source X Offset"
 #define CHECK_SOURCE_Y_NAME    "Source Y Offset"
-#define CHECK_SOURCE_X_PERC_NAME    "Source X Offset Percentage"
-#define CHECK_SOURCE_Y_PERC_NAME    "Source Y Offset Percentage"
+#define CHECK_SOURCE_X_POWER_NAME    "Source X Offset Power"
+#define CHECK_SOURCE_Y_POWER_NAME    "Source Y Offset Power"
 #define CHECK_ITERS_NAME    "Number of Iterations"
 #define CHECK_X_NAME        "X Offset"
 #define CHECK_Y_NAME        "Y Offset"
@@ -74,13 +74,13 @@ enum {
     CHECK_DEST_DECAY,
     CHECK_DEST_X,
     CHECK_DEST_Y,
-    CHECK_DEST_X_PERC,
-    CHECK_DEST_Y_PERC,
+    CHECK_DEST_X_POWER,
+    CHECK_DEST_Y_POWER,
     CHECK_SOURCE_DECAY,
     CHECK_SOURCE_X,
     CHECK_SOURCE_Y,
-    CHECK_SOURCE_X_PERC,
-    CHECK_SOURCE_Y_PERC,
+    CHECK_SOURCE_X_POWER,
+    CHECK_SOURCE_Y_POWER,
     CHECK_ITERS,
 	CHECK_NUM_PARAMS
 };
@@ -91,13 +91,13 @@ enum {
     CHECK_DEST_DECAY_DISK_ID,
     CHECK_DEST_X_DISK_ID,
     CHECK_DEST_Y_DISK_ID,
-    CHECK_DEST_X_PERC_DISK_ID,
-    CHECK_DEST_Y_PERC_DISK_ID,
+    CHECK_DEST_X_POWER_DISK_ID,
+    CHECK_DEST_Y_POWER_DISK_ID,
     CHECK_SOURCE_DECAY_DISK_ID,
     CHECK_SOURCE_X_DISK_ID,
     CHECK_SOURCE_Y_DISK_ID,
-    CHECK_SOURCE_X_PERC_DISK_ID,
-    CHECK_SOURCE_Y_PERC_DISK_ID,
+    CHECK_SOURCE_X_POWER_DISK_ID,
+    CHECK_SOURCE_Y_POWER_DISK_ID,
     CHECK_ITERS_DISK_ID
 };
 
@@ -105,47 +105,47 @@ enum {
 #define	CHECK_FRAME_MAX		100
 #define	CHECK_FRAME_DFLT	0
 
-#define    CHECK_DEST_DECAY_MIN        -100
-#define    CHECK_DEST_DECAY_MAX        100
-#define    CHECK_DEST_DECAY_DFLT        0
+#define    CHECK_DEST_DECAY_MIN        0
+#define    CHECK_DEST_DECAY_MAX        99.99
+#define    CHECK_DEST_DECAY_DFLT       90
 
-#define    CHECK_DEST_X_MIN        -100
-#define    CHECK_DEST_X_MAX        100
-#define    CHECK_DEST_X_DFLT        0
+#define    CHECK_DEST_X_MIN        -1000
+#define    CHECK_DEST_X_MAX        1000
+#define    CHECK_DEST_X_DFLT       0
 
-#define    CHECK_DEST_Y_MIN        -100
-#define    CHECK_DEST_Y_MAX        100
-#define    CHECK_DEST_Y_DFLT        0
+#define    CHECK_DEST_Y_MIN        -1000
+#define    CHECK_DEST_Y_MAX        1000
+#define    CHECK_DEST_Y_DFLT       0
 
-#define    CHECK_DEST_X_PERC_MIN        -100
-#define    CHECK_DEST_X_PERC_MAX        100
-#define    CHECK_DEST_X_PERC_DFLT        1
+#define    CHECK_DEST_X_POWER_MIN        -100
+#define    CHECK_DEST_X_POWER_MAX        100
+#define    CHECK_DEST_X_POWER_DFLT       1
 
-#define    CHECK_DEST_Y_PERC_MIN        -100
-#define    CHECK_DEST_Y_PERC_MAX        100
-#define    CHECK_DEST_Y_PERC_DFLT        1
+#define    CHECK_DEST_Y_POWER_MIN        -100
+#define    CHECK_DEST_Y_POWER_MAX        100
+#define    CHECK_DEST_Y_POWER_DFLT       1
 
-#define    CHECK_SOURCE_DECAY_MIN        -100
-#define    CHECK_SOURCE_DECAY_MAX        100
-#define    CHECK_SOURCE_DECAY_DFLT        0
+#define    CHECK_SOURCE_DECAY_MIN        0
+#define    CHECK_SOURCE_DECAY_MAX        99.99
+#define    CHECK_SOURCE_DECAY_DFLT       90
 
-#define    CHECK_SOURCE_X_MIN        -100
-#define    CHECK_SOURCE_X_MAX        100
-#define    CHECK_SOURCE_X_DFLT        0
+#define    CHECK_SOURCE_X_MIN        -1000
+#define    CHECK_SOURCE_X_MAX        1000
+#define    CHECK_SOURCE_X_DFLT       0
 
-#define    CHECK_SOURCE_Y_MIN        -100
-#define    CHECK_SOURCE_Y_MAX        100
-#define    CHECK_SOURCE_Y_DFLT        0
+#define    CHECK_SOURCE_Y_MIN        -1000
+#define    CHECK_SOURCE_Y_MAX        1000
+#define    CHECK_SOURCE_Y_DFLT       0
 
-#define    CHECK_SOURCE_X_PERC_MIN        -100
-#define    CHECK_SOURCE_X_PERC_MAX        100
-#define    CHECK_SOURCE_X_PERC_DFLT        0
+#define    CHECK_SOURCE_X_POWER_MIN        -100
+#define    CHECK_SOURCE_X_POWER_MAX        100
+#define    CHECK_SOURCE_X_POWER_DFLT       1
 
-#define    CHECK_SOURCE_Y_PERC_MIN        -100
-#define    CHECK_SOURCE_Y_PERC_MAX        100
-#define    CHECK_SOURCE_Y_PERC_DFLT        0
+#define    CHECK_SOURCE_Y_POWER_MIN        -100
+#define    CHECK_SOURCE_Y_POWER_MAX        100
+#define    CHECK_SOURCE_Y_POWER_DFLT       1
 
-#define    CHECK_ITERS_MIN        0
+#define    CHECK_ITERS_MIN        1
 #define    CHECK_ITERS_MAX        1000
 #define    CHECK_ITERS_DFLT       90
 
