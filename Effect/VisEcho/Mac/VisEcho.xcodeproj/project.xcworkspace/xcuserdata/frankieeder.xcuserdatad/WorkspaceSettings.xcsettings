@@ -5,11 +5,11 @@
 	<key>BuildLocationStyle</key>
 	<string>CustomLocation</string>
 	<key>CustomBuildIntermediatesPath</key>
-	<string>/Users/frankeder/Desktop/Build/Intermediates.noindex</string>
+	<string>Build/Intermediates.noindex</string>
 	<key>CustomBuildLocationType</key>
-	<string>Absolute</string>
+	<string>RelativeToWorkspace</string>
 	<key>CustomBuildProductsPath</key>
-	<string>/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/CUSTOM</string>
+	<string>Build/Products</string>
 	<key>DerivedDataLocationStyle</key>
 	<string>Default</string>
 	<key>IssueFilterStyle</key>

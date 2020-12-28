@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BuildMachineOSBuild</key>
+	<string>19H15</string>
+	<key>CFBundleExecutable</key>
+	<string>VisEcho</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.adobe.AfterEffects.VisEcho</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Echo</string>
+	<key>CFBundlePackageType</key>
+	<string>eFKT</string>
+	<key>CFBundleSignature</key>
+	<string>FXTC</string>
+	<key>CFBundleSupportedPlatforms</key>
+	<array>
+		<string>MacOSX</string>
+	</array>
+	<key>DTCompiler</key>
+	<string>com.apple.compilers.llvm.clang.1_0</string>
+	<key>DTPlatformBuild</key>
+	<string>11E608c</string>
+	<key>DTPlatformVersion</key>
+	<string>GM</string>
+	<key>DTSDKBuild</key>
+	<string>19E258</string>
+	<key>DTSDKName</key>
+	<string>macosx10.15</string>
+	<key>DTXcode</key>
+	<string>1150</string>
+	<key>DTXcodeBuild</key>
+	<string>11E608c</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.15</string>
+	<key>NSAppleScriptEnabled</key>
+	<string>No</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>© 1992-2006 Adobe Systems Incorporated</string>
+</dict>
+</plist>
