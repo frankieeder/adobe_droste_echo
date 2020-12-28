@@ -460,8 +460,8 @@ PF_Err PluginDataEntryFunction(
     result = PF_REGISTER_EFFECT(
         inPtr,
         inPluginDataCallBackPtr,
-        "Checkout", // Name
-        "ADBE Checkout", // Match Name
+        "Visual Echo", // Name
+        "ADBE Visual Echo", // Match Name
         "Sample Plug-ins", // Category
         AE_RESERVED_INFO); // Reserved Info
 

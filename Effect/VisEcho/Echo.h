@@ -50,7 +50,7 @@
 
 
 #define	NAME				"Visual Echo"
-#define DESCRIPTION			"Echo Image.\r Copyright 2020\r\Frankie Eder."
+#define DESCRIPTION			"Echo Image.\r Copyright 2020\r Frankie Eder."
 #define CHECK_FRAME_NAME	"Frame offset"
 #define CHECK_LAYER_NAME	"Layer to checkout"
 #define CHECK_DEST_DECAY_NAME    "Destination Decay Rate"

@@ -84,7 +84,7 @@
 			dependencies = (
 			);
 			name = VisEcho;
-			productName = Checkout.plugin;
+			productName = VisEcho.plugin;
 			productReference = C4E618CC095A3CE80012CA3F /* VisEcho.plugin */;
 			productType = "com.apple.product-type.bundle";
 		};
