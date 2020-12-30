@@ -462,7 +462,7 @@ PF_Err PluginDataEntryFunction(
         inPluginDataCallBackPtr,
         "Visual Echo", // Name
         "ADBE Visual Echo", // Match Name
-        "Sample Plug-ins", // Category
+        "Frankie Eder", // Category
         AE_RESERVED_INFO); // Reserved Info
 
     return result;

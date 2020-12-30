@@ -13,11 +13,11 @@ resource 'PiPL' (16000) {
 		},
 		/* [2] */
 		Name {
-			"Echo"
+			"Visual Echo"
 		},
 		/* [3] */
 		Category {
-			"Sample Plug-ins"
+			"Frankie Eder"
 		},
 		
 #ifdef AE_OS_WIN
@@ -55,7 +55,7 @@ resource 'PiPL' (16000) {
 		},
 		/* [11] */
 		AE_Effect_Match_Name {
-			"ADBE Echo"
+			"ADBE Visual Echo"
 		},
 		/* [12] */
 		AE_Reserved_Info {
